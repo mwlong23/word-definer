@@ -10,10 +10,10 @@ get('/') do
 end
 
 post('/') do
-  word = params['word']
+  vocabulary_word = params['vocabulary_word']
   definition = params['definition']
-  vocab_word = Word.new(word, definition)
-  vocab_word.save()
+  new_vocab_word = Word.new(vocabulary_word, definition)
+  new_vocab_word.save()
   @list = Word.all()
   erb(:list)
 end

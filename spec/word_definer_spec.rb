@@ -19,15 +19,31 @@ describe('Item') do
   end
   describe('.clear') do
       it('clears all items from the list of definitions') do
-      word = Word.new("eagle","a large bird of prey with a massive hooked bil" )
+      word = Word.new("eagle","a large bird of prey with a massive hooked bil")
       word.save()
       Word.clear()
       expect(Word.all()).to(eq([]))
     end
   end
-# describe('Word') do
-#   it'takes a word and an array that contains all words' do
-#     expect().to(eq())
-#   end
-# end
+
+  describe("#id") do
+    it 'increments id by 1 each time a vocab word is entered' do
+      vocab_word1 = Word.new("eagle", "a large bird of prey with a massive hooked bil")
+      vocab_word1.save()
+      vocab_word2 = Word.new("beagle", "a small sturdy hound of a breed with a coat of medium length, bred especially for hunting.")
+      vocab_word2.save()
+      expect(vocab_word1.id).to(eq(1))
+      expect(vocab_word2.id).to(eq(2))
+    end
+  end
+  describe( '.find') do
+    it 'finds a vocabulary word based on its id' do
+      word1 = Word.new("eagle", "a lage bird of prey")
+      word1.save()
+      word2 = Word.new("beagle", "a small sturdy houd of a breed with a coat of medium length.")
+      item2.save()
+      expect(Word.find(1)).to(eq(word1))
+      expect(word.find(2)).to(eq(word2))
+    end
+  end
 end
