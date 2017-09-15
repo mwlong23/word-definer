@@ -1,16 +1,21 @@
 # Word Definer
 
-#### _Project in Ruby_
+#### _Vocabulary words_
 
-#### By Mitch Long
+#### By Mitch Long, September 2017
 
 ## Description
 
-_A Ruby Script_
+_A Ruby App That Stores Vocabulary Words_
+
+This application takes a word and a definition for a vocabulary word. each word and definition is added to a list.  Each vocabulary word can be clicked on to reveal the definition.  
+
+
+
 
 ## Setup/Installation Requirements
 
-* Clone this repository
+* No installation necessary, check out the app [here:](https://young-depths-12691.herokuapp.com/) 
 
 ## Specifications
 
@@ -32,6 +37,8 @@ _Please contact [meechllada@gmail.com](mailto:meechllada@gmail.com) with questio
 ## Technologies Used
 
 * Ruby
+* Sinatra
+* RSPEC
 
 ### License
 
