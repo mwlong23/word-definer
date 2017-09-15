@@ -41,9 +41,9 @@ describe('Item') do
       word1 = Word.new("eagle", "a lage bird of prey")
       word1.save()
       word2 = Word.new("beagle", "a small sturdy houd of a breed with a coat of medium length.")
-      item2.save()
+      word2.save()
       expect(Word.find(1)).to(eq(word1))
-      expect(word.find(2)).to(eq(word2))
+      expect(Word.find(2)).to(eq(word2))
     end
   end
 end
