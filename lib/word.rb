@@ -1,8 +1,8 @@
 class Word
-
- @@list = []
  attr_accessor :vocabulary_word, :definition
  attr_reader :id
+  @@list = []
+  @@definitions_list = []
 
  def initialize(vocabulary_word, definition)
    @vocabulary_word = vocabulary_word

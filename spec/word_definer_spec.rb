@@ -1,5 +1,5 @@
 require 'rspec'
-require 'word_definer'
+require 'word'
 
 describe('Item') do
   before() do
