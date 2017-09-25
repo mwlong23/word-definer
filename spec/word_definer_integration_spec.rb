@@ -27,11 +27,24 @@ end
 # end
 describe('adding a new vocabulary word', {:type => :feature}) do
   it('allows a user to click a list to see the tasks and details for it') do
+    Word.clear
     visit('/')
     fill_in('vocabulary_word', :with =>'rat')
     fill_in('definition', :with =>'a rodent that resembles a large mouse')
     click_button('Submit')
     expect(page).to have_content('rat')
+  end
+end
+describe('adding a new vocabulary word', {:type => :feature}) do
+  it('allows a user to click a word to see the words and definitions') do
+    Word.clear
+    visit('/')
+    fill_in('vocabulary_word', :with =>'rat')
+    fill_in('definition', :with =>'a rodent that resembles a large mouse')
+    click_button('Submit')
+    click_link('rat')
+    expect(page).to have_content('rat')
+    expect(page).to have_content('a rodent that resembles a large mouse')
   end
 end
 
@@ -44,14 +57,20 @@ describe(".find" , {:type => :feature}) do
     expect(Word.find(test_word2.id())).to(eq(test_word2))
   end
 end
-# describe('adding words to a list', {:type => :feature}) do
-#   it('allows a user to add a word to a list of vocab words') do
-#     test_word = Word.new({:vocabulary_word => "vocabulary_word", :definition => "A definition for a vocab word", :id => nil})
-#     test_word.save()
-#     visit("/words/#{test_word.id()}")
-#     fill_in("definition", {:with => "a second definition"})
-#     visit("/words/#{test_word.id()}")
-#     expect(page).to have_content("a second definition")
-#   end
-# end
-#
+describe('adding a new definition to a word', {:type => :feature}) do
+  it('allows a user to add a word to a list of vocab words') do
+    Word.clear
+    visit('/')
+    fill_in('vocabulary_word', :with =>'rat')
+    fill_in('definition', :with =>'a rodent that resembles a large mouse')
+    click_button('Submit')
+    fill_in('vocabulary_word', :with =>'cat')
+    fill_in('definition', :with =>'a predator of mice')
+    click_button('Submit')
+    click_link('cat')
+    expect(page).to have_content('cat')
+    fill_in('definition', :with =>'a feline')
+      click_button('Submit')
+    expect(page).to have_content('feline')
+  end
+end
