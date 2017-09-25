@@ -1,2 +1,15 @@
-<h1><%= @word.vocabulary_word %>:</h1>
-<h2><%= @word.definition%></h2>
+<form action= '/words/:id' method="post">
+  <div class="form-group">
+    <label for="definition">Enter another definition:</label>
+    <input class="form-control" type="text" name="definition" id="definition">
+  </div>
+  <button type="submit">Submit</button>
+</form>
+
+<h1><%= @word.vocabulary_word %></h1>
+
+
+
+<% @word.definition.each do |definition| %>
+  <h3><%=definition%></h3>
+<% end %>
