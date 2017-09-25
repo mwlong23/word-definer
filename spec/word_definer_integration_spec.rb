@@ -19,11 +19,22 @@ end
 #     test_word.save()
 #     test_word2 = Word.new({:vocabulary_word => "A second vocabulary_word", :definition => "A second definition for a vocab word", :id => nil})
 #     test_word2.save()
-#     visit("/words/#{test_word.id()}")
-#     expect(page).to have_content(test_word.definition)
+#     visit("/")
 #     expect(page).to have_content(test_word.vocabulary_word)
+#     visit('/words/#{test_word.id}')
+#     expect(page).to have_content(test_word.definition)
 #   end
 # end
+describe('adding a new vocabulary word', {:type => :feature}) do
+  it('allows a user to click a list to see the tasks and details for it') do
+    visit('/')
+    fill_in('vocabulary_word', :with =>'rat')
+    fill_in('definition', :with =>'a rodent that resembles a large mouse')
+    click_button('Submit')
+    expect(page).to have_content('rat')
+  end
+end
+
 describe(".find" , {:type => :feature}) do
   it("returns a word by its ID") do
     test_word = Word.new({:vocabulary_word => "12312vocabulary_word", :definition => "A definition for a vocab word", :id => nil})
@@ -44,14 +55,3 @@ end
 #   end
 # end
 #
-# describe("#definitions") do
-#     it("returns an array of tasks for that list") do
-#       test_word = Word.new({:vocabulary_word => "vocabulary_word", :definition => "A definition for a vocab word", :id => nil})
-#       test_word.save()
-#       test_word2 = Word.new({:vocabulary_word => "A second vocabulary_word", :definition => "A second definition for a vocab word", :id => nil})
-#       test_word2.save()
-#       test_task2 = Task.new({:description => "Review Ruby", :list_id => test_list.id()})
-#       test_word3.save()
-#       expect(test_list.tasks()).to(eq([test_task, test_task2]))
-#     end
-#   end

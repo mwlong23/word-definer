@@ -20,16 +20,12 @@ end
 
 get('/words/:id') do
   @word = Word.find(params.fetch(:id))
-
   erb(:individual_word)
 end
 
 post('/words/:id') do
-
   @word = Word.find(2)
-
   added_definition = params.fetch(:definition)
-
   @definitions = @word.definition.push(added_definition)
 
   erb(:individual_word)

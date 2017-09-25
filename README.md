@@ -28,6 +28,21 @@ This application takes a word and a definition for a vocabulary word. each word 
 * Program displays a list of vocabulary words to the page once they are entered.
   * Example input: Enter a word: "eagle", enter a definition: "a large bird of prey with a massive hooked bil"
   * Example output: page displays "eagle"
+* Program can store all words, definitions and id's in an array
+  * Example input: Word.all
+  * Example output: [word1,word2,word3...]
+* Program can save a new definition
+  * Example input: new_word = Word.new({:word => turkey, :definition => a large bird, :id => nil})
+  * Example output: new_word. word = turkey, new_word.definition = "a large bird", new_word.id = 1
+* Program can clear all words in the list
+  * Example input: Word.clear
+  * Example output: @@list = []
+* Program can assign a new id to every new instance of Word
+  * Example input: new_word = Word.new({:word => turkey, :definition => a large bird, :id => nil})
+  * Example output: new_word.id = 1
+* Program finds a word based on it's id
+  * Example input: Word.find(vocab_word.id)
+  * Example output: vocab_word
 
 
 ## Support and contact details
